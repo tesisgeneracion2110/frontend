@@ -1,0 +1,58 @@
+<div class="form">
+    <h1 class="titulo">Crear Canción</h1>
+    <form (ngSubmit)="create()" #createForm="ngForm">
+        <input class="normal-input" type="number" name="npm" min="85" max="95" placeholder="BPM de la canción..." [(ngModel)]="song.bpm" #txtName="ngModel" />
+        <select class="normal-imput" name="root" [(ngModel)]="song.root">
+            <option value="" hidden selected>Seleccionar Nota Tónica...</option>
+            <option value="C">Do</option>
+            <option value="D">Re</option>
+            <option value="E">Mi</option>
+            <option value="F">Fa</option>
+            <option value="G">Sol</option>
+            <option value="A">La</option>
+            <option value="B">Si</option>
+        </select>
+        <select id="scale" name="scale" [(ngModel)]="song.scale">
+            <option value="" hidden selected>Seleccionar Escala...</option>
+            <option value="minor">Menor</option>
+            <option value="mayor">Mayor</option>
+        </select>
+        <input class="normal-input" type="number" name="n_chords" min="2" max="4" placeholder="Número de acordes..." [(ngModel)]="song.n_chords" #txtName="ngModel" />
+        <input #chord type="number" class="normal-input" min="1" max="7" placeholder="Acorde...">
+        <button (click)="addChord(chord)" class="array-button">Añadir Acorde</button>
+
+        <!--
+        <table class="table">
+            <thead class="thead">
+                <tr>
+                    <th>Acorde</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of song.progression">
+                    <td>{{i}}</td>
+                </tr>
+            </tbody>
+        </table>
+        -->
+        <input class="normal-input" type="number" name="n_beats" min="1" max="3" placeholder="Número de beats..." [(ngModel)]="song.n_beats" #txtName="ngModel" />
+        <div>
+            <select #struct name="scale">
+                <option value="" hidden selected>Seleccionar Estructura...</option>
+                <option value="intro">Intro</option>
+                <option value="pre_chorus">Pre_chorus</option>
+                <option value="chorus">Chorus</option>
+                <option value="verse">Verse</option>
+                <option value="outro">Outro</option>
+            </select>
+            <button (click)="addStruct(struct)" class="array-button">Añadir Estructura</button>
+        </div>
+        <button classtype="submit">
+        Confirmar
+      </button>
+
+    </form>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+    </div>
+</div>

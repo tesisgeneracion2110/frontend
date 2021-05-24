@@ -17,6 +17,21 @@ export class RestClientService {
     return throwError('An error has occurred');
   }
 
+  private get<T>(url): Observable<T> {
+    console.log('get:', url);
+    return this.http
+      .get<T>(url, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        })
+      })
+      .pipe(
+        // retry(5),
+        catchError(this.handleError)
+      );
+  }
+
   private post<T>(url, data: T): Observable<T> {
     console.log('post:', url);
     return this.http
@@ -31,27 +46,36 @@ export class RestClientService {
       );
   }
 
+  getLyrics() {
+    const url = `${environment.serviceBaseUrl}/lyrics`;
+    return this.get(url);
+  }
+
   createSong(song: Song) {
     const url = `${environment.serviceBaseUrl}/song`;
     return this.post(url, {
       music: {
-        "bpm": 90,
-        "root": "A",
-        "scale": "minor",
-        "n_chords": 4,
-        "progression": [ 3, 4, 5, 7 ],
-        "n_beats": 2,
-        "structure": [
-            [ "intro", 1 ],
-            [ "chorus", 1 ]
-    ]
+        bpm: song.bpm,
+        root: song.root,
+        scale: song.scale,
+        n_chords: song.n_chords,
+        progression: song.progression,
+        n_beats: song.n_beats,
+        structure: song.structure
       }
-      /*titulo: libro.titulo,
-      anio: libro.anio,
-      genero: libro.genero,
-      numero_paginas: libro.numero_paginas,
-      editorial_id: libro.editorial_id,
-      autor_id: libro.autor_id*/
+    });
+  }
+
+  createMusic(song: Song) {
+    const url = `${environment.serviceBaseUrl}/music`;
+    return this.post(url, {
+      bpm: song.bpm,
+      root: song.root,
+      scale: song.scale,
+      n_chords: song.n_chords,
+      progression: song.progression,
+      n_beats: song.n_beats,
+      structure: song.structure
     });
   }
 }

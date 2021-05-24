@@ -6,21 +6,17 @@ import { RestClientService } from '../service/rest-client.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-song',
-  templateUrl: './song.component.html',
-  styleUrls: ['./song.component.css']
+  selector: 'app-music',
+  templateUrl: './music.component.html',
+  styleUrls: ['./music.component.css']
 })
-export class SongComponent implements OnInit {
+export class MusicComponent implements OnInit {
 
   @ViewChild('createForm', { static: true })
   createForm;
 
-  file_lyric = '';
-  file_voice = '';
-  file_melody = '';
-  file_music = '';
-  file_song = '';
-  file_voicexml = '';
+  file_wav = '';
+  file_mid = '';
   progression = '';
   structure = '';
   result = false;
@@ -56,17 +52,14 @@ export class SongComponent implements OnInit {
       if (this.song.structure.length == 1) {
         this.song.structure = undefined
       }
-      this.restClient.createSong(this.song).subscribe(
+      this.restClient.createMusic(this.song).subscribe(
         result => {
           console.log(result);
-          this.file_lyric = result['lyric'];
-          this.file_voice = result['voice'];
-          this.file_melody = result['melody'];
-          this.file_music = result['musica'];
-          this.file_song = result['song'];
-          this.file_voicexml = result['voicexml'];
+          this.file_wav = result['wav'];
+          this.file_mid = result['midi'];
           this.result = true;
-          this.router.navigate(['/']);
+          console.log(this.file_wav);
+          console.log(this.file_mid);
         },
         error => {
           console.error(error);
@@ -83,8 +76,9 @@ export class SongComponent implements OnInit {
     this.song.n_chords = undefined;
     this.song.progression = [];
     this.song.n_beats = undefined;
-    this.song.structure = [[undefined, undefined]];
+    this.song.structure = [[undefined, undefined]];    
   }
+
 
   checkArrays() {
     console.log(this.progression);

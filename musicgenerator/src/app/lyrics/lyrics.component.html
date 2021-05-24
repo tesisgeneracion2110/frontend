@@ -1,0 +1,11 @@
+<div class="form">
+    <h1 class="titulo">Generar Letra</h1>
+    <form (ngSubmit)="getLyrics()" #createForm="ngForm">
+        <button class="normal-button" classtype="submit">
+          Solicitar Letra
+        </button>
+        <div class="link">
+            <a *ngIf="result" href="{{ url }}/files/{{ file }}" target="_blank">Descargar archivo</a>
+        </div>
+    </form>
+</div>

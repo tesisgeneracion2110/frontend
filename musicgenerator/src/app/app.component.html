@@ -1,11 +1,9 @@
-<h1 class="titulo">Generacion de Musica</h1>
+<h1 class="titulo">Generación de Música Basada en Género Musical</h1>
 <div class="barra-menu">
     <nav>
-        <a class="opcion-menu" [routerLink]="['/']">Menu Principal</a>
         <a class="opcion-menu" [routerLink]="['song']">Generar Canción</a>
-        <a class="opcion-menu">Generar Letra</a>
-        <a class="opcion-menu">Generar Música</a>
-        <a class="opcion-menu">Generar Voz</a>
+        <a class="opcion-menu" [routerLink]="['lyrics']">Generar Letra</a>
+        <a class="opcion-menu" [routerLink]="['music']">Generar Música</a>
     </nav>
 </div>
 <router-outlet></router-outlet>

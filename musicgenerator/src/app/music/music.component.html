@@ -1,5 +1,5 @@
 <div class="form">
-    <h1 class="titulo">Generar Canción</h1>
+    <h1 class="titulo">Generar Música</h1>
     <form (ngSubmit)="create()" #createForm="ngForm">
         <input type="number" name="npm" min="85" max="95" placeholder="BPM de la canción..." [(ngModel)]="song.bpm" #txtName="ngModel" />
         <select name="root" [(ngModel)]="song.root">
@@ -19,19 +19,7 @@
         </select>
         <input type="number" name="n_chords" min="2" max="4" placeholder="Número de acordes..." [(ngModel)]="song.n_chords" #txtName="ngModel" />
         <input type="text" name="progression" placeholder="Ej. 1,2,3,4" [(ngModel)]="progression" #txtName="ngModel" />
-        <!--<button (click)="addChord(chord)" class="array-button">Añadir Acorde</button>-->
         <input type="number" name="n_beats" min="1" max="3" placeholder="Número de beats..." [(ngModel)]="song.n_beats" #txtName="ngModel" />
-        <!--<div>
-            <select #struct name="scale">
-                <option value="" hidden selected>Seleccionar Estructura...</option>
-                <option value="intro">Intro</option>
-                <option value="pre_chorus">Pre_chorus</option>
-                <option value="chorus">Chorus</option>
-                <option value="verse">Verse</option>
-                <option value="outro">Outro</option>
-            </select>
-            <button (click)="addStruct(struct)" class="array-button">Añadir Estructura</button>
-        </div>-->
         <input type="text" name="structure" placeholder="Ej. intro,chorus,outro,..." [(ngModel)]="structure" #txtName="ngModel" />
         <button class="normal-button" classtype="submit">
         Confirmar
@@ -42,21 +30,9 @@
         {{ errorMessage }}
     </div>
     <div class="link">
-        <a *ngIf="result" href="{{ url }}/files/{{ file_song }}" target="_blank">Descargar canción</a>
+        <a *ngIf="result" href="{{ url }}/files/{{ file_wav }}" target="_blank">Descargar música</a>
     </div>
     <div class="link">
-        <a *ngIf="result" href="{{ url }}/files/{{ file_musica }}" target="_blank">Descargar música</a>
-    </div>
-    <div class="link">
-        <a *ngIf="result" href="{{ url }}/files/{{ file_melody }}" target="_blank">Descargar melodía de voz</a>
-    </div>
-    <div class="link">
-        <a *ngIf="result" href="{{ url }}/files/{{ file_voice }}" target="_blank">Descargar voz</a>
-    </div>
-    <div class="link">
-        <a *ngIf="result" href="{{ url }}/files/{{ file_lyric }}" target="_blank">Descargar letra</a>
-    </div>
-    <div class="link">
-        <a *ngIf="result" href="{{ url }}/files/{{ file_voicexml }}" target="_blank">Descargar partitura de voz</a>
+        <a *ngIf="result" href="{{ url }}/files/{{ file_mid }}" target="_blank">Descargar melodía de voz</a>
     </div>
 </div>

@@ -12,40 +12,12 @@
     border: solid;
     border-width: thin;
     width: 400px;
-    height: 670px;
+    height: 170px;
     background-color: #f8fbf7;
     margin: auto;
 }
 
-.array-item {
-    margin-top: 15px;
-    height: 25px;
-    width: 150px;
-    font-size: 10px;
-}
-
-.array-button {
-    display: inline-block;
-    color: white;
-    margin-top: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
-    height: 30px;
-    font-size: 10px;
-    background-color: #8470ff;
-    font-weight: bold;
-    width: 157px;
-    cursor: pointer;
-}
-
-input {
-    margin-top: 15px;
-    font-size: 15px;
-    width: 325px;
-    height: 30px;
-}
-
-.normal-button {
+button {
     display: inline-block;
     color: white;
     margin-top: 15px;
@@ -57,13 +29,6 @@ input {
     font-weight: bold;
     width: 157px;
     cursor: pointer;
-}
-
-select {
-    margin-top: 15px;
-    font-size: 15px;
-    width: 335px;
-    height: 30px;
 }
 
 .link {

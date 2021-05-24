@@ -11,20 +11,20 @@
 }
 
 .barra-menu {
-    border-color: black;
     background-color: #f8fbf7;
-    position: sticky;
-    top: 0;
-    left: 0;
     width: 100%;
     font-family: 'Quicksand', sans-serif;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .opcion-menu {
+    border: solid;
+    border-width: thin;
+    border-color: black;
     color: #8470ff;
     float: left;
     text-align: center;
-    padding: 13px 15px;
-    text-decoration: none;
+    margin: auto;
+    padding: 13px 174px;
 }
